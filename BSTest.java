@@ -5,17 +5,23 @@ public class BSTest {
 
   public static void main(String[] args) {
     BST bst = new BST();
-    bst.insert(10);
-    bst.insert(20);
-    bst.insert(15);
-    bst.insert(6);
-    bst.insert(12);
+    bst.insert(3);
+    bst.insert(4);
+    bst.insert(11);
+    bst.insert(1);
+    bst.insert(-2);
     bst.visit(bst.root);
     System.out.println("search");
-    System.out.println(bst.search(bst.root, 20).data);
+    System.out.println(bst.search(bst.root, 11).data);
     System.out.println("bfs traversal");
     bst.bfs();
     System.out.println("dfs");
     bst.dfs();
+    System.out.println("preorder");
+    bst.preorder(bst.root);
+    System.out.println("inorder");
+    bst.inorder(bst.root);
+    System.out.println("postorder");
+    bst.postorder(bst.root);
   }
 }

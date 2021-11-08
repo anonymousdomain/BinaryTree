@@ -57,11 +57,35 @@ public class BST {
       st.push(node);
 
       while (!st.isEmpty()) {
-        node=st.pop();
+        node = st.pop();
         visit(node);
-        if(node.right!=null)st.push(node.right);
-        if(node.left!=null)st.push(node.left);
+        if (node.right != null) st.push(node.right);
+        if (node.left != null) st.push(node.left);
       }
     }
   }
+
+  // dfs traversal preorder postorde inorder
+
+  public void preorder(BSTNode node) {
+    if(node != null){
+      visit(node);
+      preorder(node.left);
+      preorder(node.right);
+    }
+    } 
+    public void inorder(BSTNode node){
+      if(node!=null){
+        inorder(node.left);
+        visit(node);
+        inorder(node.right);
+      }
+    }
+    public void postorder(BSTNode node){
+      if(node!=null){
+        postorder(node.left);
+        postorder(node.right);
+        visit(node);
+      }
+    }
 }
