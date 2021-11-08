@@ -1,5 +1,3 @@
-import java.util.Queue;
-import java.util.Stack;
 
 /**
  * BST
@@ -24,7 +22,7 @@ public class BST {
       if (p.data < e1) p = p.right;
       else  p = p.left;
     }
-    if (root == null) root = new BSTNode();
+    if (root == null) root = new BSTNode(e1);
     else if (prev.data < e1) prev.right = new BSTNode(e1); 
     else prev.left =new BSTNode(e1);
   }
@@ -39,6 +37,16 @@ public class BST {
    return null;
   }
   public void bfs(){
-    
+    BSTNode node=this.root;
+      LLQueue queue=new LLQueue();
+      if(node!=null){
+        queue.enqueue(node);
+        while(!queue.isEmpty()){
+          node= queue.dequeue();
+          visit(node);
+          if(node.left!=null)queue.enqueue(node.left);
+          if(node.right!=null)queue.enqueue(node.right);
+        }
+      }
   }
 }

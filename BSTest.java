@@ -11,7 +11,9 @@ public class BSTest {
         bst.insert(6);
         bst.insert(12);
         bst.visit(bst.root);
-System.out.println(bst.search(
-    bst.root, 20).data);
+        System.out.println("search");
+System.out.println(bst.search(bst.root, 20).data);
+System.out.println("bfs traversal");
+    bst.bfs();
     }
 }
