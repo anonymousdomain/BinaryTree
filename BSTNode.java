@@ -3,18 +3,18 @@
  */
 public class BSTNode {
 
-  Object data;
+  int data;
   BSTNode left, right;
 
   public BSTNode() {
     this.left = this.right = null;
   }
 
-  public BSTNode(Object data) {
+  public BSTNode(int data) {
     this(data, null, null);
   }
 
-  public BSTNode(Object data, BSTNode left, BSTNode right) {
+  public BSTNode(int data, BSTNode left, BSTNode right) {
     this.data = data;
     this.left = left;
     this.right = right;
