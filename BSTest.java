@@ -23,5 +23,6 @@ public class BSTest {
     bst.inorder(bst.root);
     System.out.println("postorder");
     bst.postorder(bst.root);
+    System.out.println(bst.BinaryTreeSum(bst.root));
   }
 }
