@@ -88,4 +88,12 @@ public class BST {
         visit(node);
       }
     }
+    public int BinaryTreeSum(BSTNode node){
+     
+      if (node==null) return 0;
+      int leftsum=BinaryTreeSum(node.left);
+      int rightSum=BinaryTreeSum(node.right);
+        return node.data+leftsum+rightSum;
+      
+    }
 }
