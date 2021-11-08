@@ -1,12 +1,20 @@
 class Stack {
 
-  LinkedList ls = new LinkedList();
+  LinkedList ls;
+  public Stack(){
+    this.ls=new LinkedList();
+  }
+  
 
   public void push(BSTNode e1) {
-    ls.addToTail(e1);
+    this.ls.addToTail(e1);
   }
 
-  public void pop() {
-    ls.removeFromTail();
+  public BSTNode pop() {
+   return this.ls.removeFromTail();
+  }
+
+  public boolean isEmpty() {
+    return ls.isEmpty();
   }
 }
