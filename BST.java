@@ -25,6 +25,8 @@ public class BST {
     else if (prev.data < e1) prev.right = new BSTNode(e1); 
     else prev.left =new BSTNode(e1);
   }
+
+  //this only works if the binary tree is sorted tree
   public BSTNode search(BSTNode p,int e1){
    while (p!=null) {
      if(p.data==e1)return p;
