@@ -3,7 +3,7 @@
  */
 public class BSTNode {
 
-  int data;
+  int data ,height;
   BSTNode left, right;
 
   public BSTNode() {
@@ -12,7 +12,7 @@ public class BSTNode {
 
   public BSTNode(int data ) {
     this(data, null, null);
-    
+    this.height=1;
   }
 
   public BSTNode(int data, BSTNode left, BSTNode right) {

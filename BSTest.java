@@ -1,6 +1,4 @@
-/**
- * BSTest
- */
+
 public class BSTest {
 
   public static void main(String[] args) {
