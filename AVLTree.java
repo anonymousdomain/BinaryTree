@@ -24,4 +24,15 @@ public class AVLTree {
     //rotated node
     return x;
   }
+
+  BSTNode leftRotation(BSTNode x) {
+    BSTNode y = x.right;
+    BSTNode subnode = y.left;
+
+    //roatate to left
+    x.right=subnode;
+    y.left=x;
+
+    return y;
+  }
 }
