@@ -35,4 +35,9 @@ public class AVLTree {
 
     return y;
   }
+  int getBalanceFactor(BSTNode node){
+      if(node==null)return 0;
+      return height(node.left)-height(node.right);
+  }
+  
 }
