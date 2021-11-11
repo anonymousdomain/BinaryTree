@@ -13,16 +13,13 @@ public class BST {
     System.out.println(p.data + " ");
   }
 
-  public void insert(int e1) {
-    BSTNode p = root, prev = null;
-
-    while (p != null) {
-      prev = p;
-      if (p.data < e1) p = p.right; else p = p.left;
-    }
-    if (root == null) root = new BSTNode(e1); else if (
-      prev.data < e1
-    ) prev.right = new BSTNode(e1); else prev.left = new BSTNode(e1);
+  public BSTNode insert(BSTNode node, int e1) {
+    if (node == null) return new BSTNode(e1);
+    if (e1 < node.data) node.left = insert(node.left, e1); 
+    else if (
+      e1 > node.data
+    ) node.right = insert(node.right, e1);
+    return node;
   }
 
   //this only works if the binary tree is sorted tree
@@ -68,32 +65,33 @@ public class BST {
   // dfs traversal preorder postorde inorder
 
   public void preorder(BSTNode node) {
-    if(node != null){
+    if (node != null) {
       visit(node);
       preorder(node.left);
       preorder(node.right);
     }
-    } 
-    public void inorder(BSTNode node){
-      if(node!=null){
-        inorder(node.left);
-        visit(node);
-        inorder(node.right);
-      }
+  }
+
+  public void inorder(BSTNode node) {
+    if (node != null) {
+      inorder(node.left);
+      visit(node);
+      inorder(node.right);
     }
-    public void postorder(BSTNode node){
-      if(node!=null){
-        postorder(node.left);
-        postorder(node.right);
-        visit(node);
-      }
+  }
+
+  public void postorder(BSTNode node) {
+    if (node != null) {
+      postorder(node.left);
+      postorder(node.right);
+      visit(node);
     }
-    public int BinaryTreeSum(BSTNode node){
-     
-      if (node==null) return 0;
-      int leftsum=BinaryTreeSum(node.left);
-      int rightSum=BinaryTreeSum(node.right);
-        return node.data+leftsum+rightSum;
-      
-    }
+  }
+
+  public int BinaryTreeSum(BSTNode node) {
+    if (node == null) return 0;
+    int leftsum = BinaryTreeSum(node.left);
+    int rightSum = BinaryTreeSum(node.right);
+    return node.data + leftsum + rightSum;
+  }
 }
