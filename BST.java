@@ -1,12 +1,11 @@
-/**
- * BST
- */
 public class BST {
 
   BSTNode root;
+  AVLTree avl;
 
   public BST() {
-    this.root = null;
+    this.root=null;
+    avl = new AVLTree();
   }
 
   public void visit(BSTNode p) {
@@ -15,10 +14,33 @@ public class BST {
 
   public BSTNode insert(BSTNode node, int e1) {
     if (node == null) return new BSTNode(e1);
-    if (e1 < node.data) node.left = insert(node.left, e1); 
-    else if (
+    if (e1 < node.data) node.left = insert(node.left, e1); else if (
       e1 > node.data
     ) node.right = insert(node.right, e1);
+     else return node;
+
+   // update the node hieght
+    node.height = avl.max(avl.height(node.left), avl.height(node.right)) + 1;
+
+    //get balance factor
+    int balanceFctor = avl.getBalanceFactor(node);
+
+    if (balanceFctor > 1 && e1 < node.left.data) {
+      return avl.rightRotation(node);
+    }
+    //left right rotation
+    if (balanceFctor > 1 && e1 > node.left.data) {
+      node.left = avl.leftRotation(node.left);
+      return avl.rightRotation(node);
+    }
+
+    if(balanceFctor<-1 && e1>node.right.data){
+      return avl.leftRotation(node);
+    }
+    if(balanceFctor<-1 && e1<node.right.data){
+      node.right=avl.rightRotation(node.right);
+      return avl.leftRotation(node);
+    }
     return node;
   }
 

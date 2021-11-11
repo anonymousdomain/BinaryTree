@@ -3,14 +3,14 @@ public class BSTest {
 
   public static void main(String[] args) {
     BST bst = new BST();
-    bst.insert(3);
-    bst.insert(4);
-    bst.insert(11);
-    bst.insert(1);
-    bst.insert(-2);
-    bst.visit(bst.root);
+    bst.insert(bst.root,30);
+    bst.insert(bst.root,10);
+    bst.insert(bst.root,11);
+    bst.insert(bst.root,1);
+    bst.insert(bst.root,-2);
+    //bst.visit(bst.root);
     System.out.println("search");
-    System.out.println(bst.search(bst.root, 11).data);
+   // System.out.println(bst.search(bst.root, 11).data);
     System.out.println("bfs traversal");
     bst.bfs();
     System.out.println("dfs");

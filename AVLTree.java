@@ -1,7 +1,5 @@
 public class AVLTree {
 
-  BSTNode root;
-
   int height(BSTNode node) {
     if (node == null) return 0;
     return node.height;
@@ -30,14 +28,14 @@ public class AVLTree {
     BSTNode subnode = y.left;
 
     //roatate to left
-    x.right=subnode;
-    y.left=x;
+    x.right = subnode;
+    y.left = x;
 
     return y;
   }
-  int getBalanceFactor(BSTNode node){
-      if(node==null)return 0;
-      return height(node.left)-height(node.right);
+
+  int getBalanceFactor(BSTNode node) {
+    if (node == null) return 0;
+    return height(node.left) - height(node.right);
   }
-  
 }
