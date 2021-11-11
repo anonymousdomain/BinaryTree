@@ -10,8 +10,9 @@ public class BSTNode {
     this.left = this.right = null;
   }
 
-  public BSTNode(int data) {
+  public BSTNode(int data ) {
     this(data, null, null);
+    
   }
 
   public BSTNode(int data, BSTNode left, BSTNode right) {
