@@ -1,47 +1,24 @@
 public class BST {
 
   BSTNode root;
-  AVLTree avl;
 
   public BST() {
-    this.root=null;
-    avl = new AVLTree();
+    this.root = null;
   }
 
   public void visit(BSTNode p) {
     System.out.println(p.data + " ");
   }
 
-  public BSTNode insert(BSTNode node, int e1) {
-    if (node == null) return new BSTNode(e1);
-    if (e1 < node.data) node.left = insert(node.left, e1); else if (
-      e1 > node.data
-    ) node.right = insert(node.right, e1);
-     else return node;
-
-   // update the node hieght
-    node.height = avl.max(avl.height(node.left), avl.height(node.right)) + 1;
-
-    //get balance factor
-    int balanceFctor = avl.getBalanceFactor(node);
-
-    if (balanceFctor > 1 && e1 < node.left.data) {
-      return avl.rightRotation(node);
+  public void insert(int key) {
+    BSTNode p = root, prev = null;
+    while (p != null) {
+      prev = p;
+      if (key < p.data) p = p.left; else p = p.right;
     }
-    //left right rotation
-    if (balanceFctor > 1 && e1 > node.left.data) {
-      node.left = avl.leftRotation(node.left);
-      return avl.rightRotation(node);
-    }
-
-    if(balanceFctor<-1 && e1>node.right.data){
-      return avl.leftRotation(node);
-    }
-    if(balanceFctor<-1 && e1<node.right.data){
-      node.right=avl.rightRotation(node.right);
-      return avl.leftRotation(node);
-    }
-    return node;
+    if (root == null) root = new BSTNode(key);
+     else if (key < prev.data) prev.left = new BSTNode(key);
+    else prev.right = new BSTNode(key);
   }
 
   //this only works if the binary tree is sorted tree

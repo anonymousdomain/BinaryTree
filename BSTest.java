@@ -3,11 +3,17 @@ public class BSTest {
 
   public static void main(String[] args) {
     BST bst = new BST();
-    bst.insert(bst.root,30);
-    bst.insert(bst.root,10);
-    bst.insert(bst.root,11);
-    bst.insert(bst.root,1);
-    bst.insert(bst.root,-2);
+    AVLTree avl=new AVLTree();
+    bst.insert(10);
+    bst.insert(20);
+    bst.insert(30);
+    bst.insert(40);
+    bst.insert(50);
+    avl.insert(bst.root,30);
+    avl.insert(bst.root,10);
+    avl.insert(bst.root,11);
+    avl.insert(bst.root,1);
+    avl.insert(bst.root,-2);
     //bst.visit(bst.root);
     System.out.println("search");
    // System.out.println(bst.search(bst.root, 11).data);

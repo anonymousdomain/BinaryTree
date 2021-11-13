@@ -1,4 +1,5 @@
 public class AVLTree {
+BSTNode root;
 
   int height(BSTNode node) {
     if (node == null) return 0;
@@ -37,5 +38,36 @@ public class AVLTree {
   int getBalanceFactor(BSTNode node) {
     if (node == null) return 0;
     return height(node.left) - height(node.right);
+  }
+  public BSTNode insert(BSTNode node, int e1) {
+    if (node == null) return new BSTNode(e1);
+    if (e1 < node.data) node.left = insert(node.left, e1); else if (
+      e1 > node.data
+    ) node.right = insert(node.right, e1);
+     else return node;
+
+   // update the node hieght
+    node.height = max(height(node.left),height(node.right)) + 1;
+
+    //get balance factor
+    int balanceFctor = getBalanceFactor(node);
+
+    if (balanceFctor > 1 && e1 < node.left.data) {
+      return rightRotation(node);
+    }
+    //left right rotation
+    if (balanceFctor > 1 && e1 > node.left.data) {
+      node.left = leftRotation(node.left);
+      return rightRotation(node);
+    }
+
+    if(balanceFctor<-1 && e1>node.right.data){
+      return leftRotation(node);
+    }
+    if(balanceFctor<-1 && e1<node.right.data){
+      node.right=rightRotation(node.right);
+      return leftRotation(node);
+    }
+    return node;
   }
 }
