@@ -3,14 +3,14 @@ public class BSTest {
 
   public static void main(String[] args) {
     BST bst = new BST();
-    bst.insert(bst.root,30);
-    bst.insert(bst.root,10);
-    bst.insert(bst.root,11);
-    bst.insert(bst.root,1);
-    bst.insert(bst.root,-2);
-    //bst.visit(bst.root);
+  bst.insert(10);
+  bst.insert(20);
+  bst.insert(30);
+  bst.insert(40);
+  bst.insert(50);
+  
     System.out.println("search");
-   // System.out.println(bst.search(bst.root, 11).data);
+   System.out.println(bst.search(bst.root,10).data);
     System.out.println("bfs traversal");
     bst.bfs();
     System.out.println("dfs");
@@ -21,6 +21,7 @@ public class BSTest {
     bst.inorder(bst.root);
     System.out.println("postorder");
     bst.postorder(bst.root);
+    System.out.println("binary tree sum");
     System.out.println(bst.BinaryTreeSum(bst.root));
   }
 }
