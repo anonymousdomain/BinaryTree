@@ -1,5 +1,6 @@
 public class AVLTree {
-BSTNode root;
+
+  BSTNode root;
 
   int height(BSTNode node) {
     if (node == null) return 0;
@@ -39,15 +40,15 @@ BSTNode root;
     if (node == null) return 0;
     return height(node.left) - height(node.right);
   }
+
   public BSTNode insert(BSTNode node, int e1) {
     if (node == null) return new BSTNode(e1);
     if (e1 < node.data) node.left = insert(node.left, e1); else if (
       e1 > node.data
-    ) node.right = insert(node.right, e1);
-     else return node;
+    ) node.right = insert(node.right, e1); else return node;
 
-   // update the node hieght
-    node.height = max(height(node.left),height(node.right)) + 1;
+    // update the node hieght
+    node.height = max(height(node.left), height(node.right)) + 1;
 
     //get balance factor
     int balanceFctor = getBalanceFactor(node);
@@ -61,13 +62,21 @@ BSTNode root;
       return rightRotation(node);
     }
 
-    if(balanceFctor<-1 && e1>node.right.data){
+    if (balanceFctor < -1 && e1 > node.right.data) {
       return leftRotation(node);
     }
-    if(balanceFctor<-1 && e1<node.right.data){
-      node.right=rightRotation(node.right);
+    if (balanceFctor < -1 && e1 < node.right.data) {
+      node.right = rightRotation(node.right);
       return leftRotation(node);
     }
     return node;
+  }
+
+  public void preorder(BSTNode node) {
+    if (node != null) {
+      System.out.println(node.data + " ");
+      preorder(node.left);
+      preorder(node.right);
+    }
   }
 }
