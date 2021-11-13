@@ -1,9 +1,8 @@
 public class BST {
-
   BSTNode root;
-
   public BST() {
     this.root = null;
+   
   }
 
   public void visit(BSTNode p) {
@@ -24,8 +23,9 @@ public class BST {
   //this only works if the binary tree is sorted tree
   public BSTNode search(BSTNode p, int e1) {
     while (p != null) {
-      if (p.data == e1) return p; else if (e1 < p.data) p = p.left;
-      p = p.right;
+      if (p.data == e1) return p;
+       else if (e1 < p.data) p = p.left;
+       else  p = p.right;
     }
     return null;
   }
